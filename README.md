@@ -1,4 +1,8 @@
-# 📚 Books Scraping & SQL Pipeline
+# 📚 Books Scraping & SQL + API
+
+![Python](https://img.shields.io/badge/Python-3.x-blue?style=flat&logo=python)
+![SQLite](https://img.shields.io/badge/Database-SQLite3-green?style=flat&logo=sqlite)
+![ETL](https://img.shields.io/badge/Process-ETL-orange)
 
 Este proyecto es una implementación completa de un proceso **ETL (Extract, Transform, Load)**. Extrae información de libros desde una web de prueba, enriquece los datos consultando una API externa, limpia la información y la almacena en una base de datos **SQLite** completamente normalizada.
 
@@ -21,26 +25,8 @@ Este proyecto es una implementación completa de un proceso **ETL (Extract, Tran
 
 ## 🗂️ Modelo de Base de Datos
 
-El diseño sigue las reglas de normalización para asegurar la integridad de los datos.
-
-```mermaid
-erDiagram
-    CATEGORIA ||--|{ LIBROS : "tiene"
-    LIBROS ||--|{ LIBRO_AUTOR : "pertenece"
-    AUTORES ||--|{ LIBRO_AUTOR : "escribe"
-
-    LIBROS {
-        PK id_libros
-        string titulo
-        real precio
-        int calificacion
-        FK id_categoria
-    }
-    AUTORES {
-        PK id_autor
-        string nombre_autor
-    }
-    CATEGORIA {
-        PK id_categoria
-        string nombre_categoria
-    }
+```text
+├── bd_evaluacion.db       # Base de datos SQLite generada
+├── webscraping.ipynb      # Notebook con la lógica de extracción y carga
+├── requirements.txt       # Lista de dependencias del proyecto
+└── README.md              # Documentación
